@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class PageObgects {
+    RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final SelenideElement fullNameInput = $("#userName");
     private final SelenideElement userEmailInput = $("#userEmail");
     private final SelenideElement currentAddressInput = $("#currentAddress");
@@ -37,6 +38,10 @@ public class PageObgects {
     }
     public PageObgects setSubmit() {
         submit.click();
+        return this;
+    }
+    public PageObgects verifyResult(String key, String value) {
+        registrationResultsModal.verifyResult(key, value);
         return this;
     }
 }
